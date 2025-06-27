@@ -21,7 +21,6 @@ round(7.68) #output = 8
 trunc(8.3) #output = 8
 trunc(8.9) # 8
 
-
 # datatype checks
 is_integer(10) #output == true
 is_integer(10.0) #output == false | float
@@ -30,5 +29,4 @@ is_integer(10.0) #output == false | float
 true and true #output = true
 false or is_boolean(true) #output = true
 # and or are short circuit operators. only execute right side if left side is not enough.
-
 
