@@ -1,5 +1,4 @@
 # Elixir 101
-> [!IMPORTANT]
-> this is an ELixir Sample code
+This repo is for practicing Elixir
 
 Copyright (c) 2025 Author. All Rights Reserved.
