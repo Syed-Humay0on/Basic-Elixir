@@ -1,4 +1,4 @@
-# Hello
+# Elixir 101
 > [!IMPORTANT]
 > this is an ELixir Sample code
 
