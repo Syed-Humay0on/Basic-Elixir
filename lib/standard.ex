@@ -1,18 +1,5 @@
 defmodule Standard do
-  @moduledoc """
-  Documentation for `Standard`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Standard.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def new() do
+  %{name: "Humayoon", age: 23}
   end
 end

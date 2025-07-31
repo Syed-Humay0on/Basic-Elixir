@@ -21,3 +21,6 @@ standard-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+#ignore git file
+.git
