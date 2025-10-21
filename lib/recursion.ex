@@ -1,3 +1,4 @@
+# Check API
 defmodule Math do
   def sum_list([head | tail], accumulator) do
     sum_list(tail, head + accumulator)
