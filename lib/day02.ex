@@ -19,11 +19,13 @@ defmodule Day02 do
 end
 
 # Test Data
-person = %{"name"=> "Sarah", "age"=> 30, "city"=> "Berlin"}
-list = [1,2,3,4,5]
+person = %{"name" => "Sarah", "age" => 30, "city" => "Berlin"}
+list = [1, 2, 3, 4, 5]
 
 # Correct Calls
-IO.puts(Day02.get_name(person))      # "Sarah" - map with name
-IO.puts(Day02.get_first(list))       # "1" - first element of list
+# "Sarah" - map with name
+IO.puts(Day02.get_name(person))
+# "1" - first element of list
+IO.puts(Day02.get_first(list))
 IO.puts(Day02.handle_response({:ok, "data loaded"}))
 IO.puts(Day02.validate_age(30, 30))

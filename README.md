@@ -1,21 +1,19 @@
-# Standard
 
-**TODO: Add description**
+---
 
-## Installation
+## **`README.md`** - Simple Project Description
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `standard` to your list of dependencies in `mix.exs`:
+```markdown
+![Elixir Learning Banner](https://miro.medium.com/v2/resize:fit:640/format:webp/1*sibZGERFV7n0oDxZj1sP6A.png)
 
-```elixir
-def deps do
-  [
-    {:standard, "~> 0.1.0"}
-  ]
-end
-```
+# 15 Days of Elixir
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/standard>.
+Learn Elixir from zero to building REST APIs, web scrapers, and concurrent crawlers.
 
+## 📖 The Roadmap
+**[View the full 15-day plan →](ROADMAP.md)**
+
+## 🚀 Quick Start
+```bash
+# Run Day 1
+elixir lib/day01.ex

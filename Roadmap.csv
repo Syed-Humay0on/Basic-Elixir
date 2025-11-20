@@ -1,0 +1,18 @@
+| Day | Topic                        | Key Concepts                    | File                                |
+| --- | ---------------------------- | ------------------------------- | ----------------------------------- |
+| 01  | **Foundations**              | Syntax, Modules, Data Types     | `lib/day01.ex`                      |
+| 02  | **Pattern Matching**         | Lists, Maps, Tuples, Guards     | `lib/day02.ex`                      |
+| 03  | **Pipe Operator**            | Data Transformation Chains      | `lib/day03.ex`                      |
+| 04  | **Processes**                | spawn, send, receive            | `lib/day04.ex`                      |
+| 05  | **Stateful Processes**       | KV Store Process                | `lib/day05.ex`                      |
+| 06  | **Fault Tolerance**          | Links, Monitors, Trapping Exits | `lib/day06.ex`                      |
+| 07  | **OTP GenServer**            | Server/Client pattern           | `mix new kv_server --sup`           |
+| 08  | **OTP Supervisors**          | Supervision Trees               | `lib/kv_server/`                    |
+| 09  | **OTP Application**          | Configuration, Releases         | `config/config.exs`                 |
+| 10  | **HTTP & JSON**              | HTTPoison, Jason, Concurrency   | `lib/day10/api_client.ex`           |
+| 11  | **Web Scraping**             | Floki, HTML parsing             | `lib/day11/scraper.ex`              |
+| 12  | **Rate-Limited Concurrency** | Task, chunk\_every              | `lib/day12/concurrent_processor.ex` |
+| 13  | **REST API**                 | Plug, Cowboy, Routing           | `lib/day13/api.ex`                  |
+| 14  | **Supervised Scraper**       | Fault-tolerant scraper          | `lib/day14/scraper_worker.ex`       |
+| 15  | **Web Crawler**              | Spider with queues              | `lib/day15/crawler.ex`              |
+
