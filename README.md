@@ -1,8 +1,6 @@
 ![Elixir Learning Banner](https://miro.medium.com/v2/resize:fit:640/format:webp/1*sibZGERFV7n0oDxZj1sP6A.png)
 ---
 
-# 15 Days of Elixir
-
 # My Elixir Learning Journey 🚀
 
 ## Core Concepts
