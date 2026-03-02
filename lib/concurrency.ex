@@ -1,61 +1,46 @@
-# 1. Define the Shop module (The "Service" Actor)
-defmodule CoffeeShop do
-  # 2. This is the main loop for the Shop Actor
-  def start_shop do
-    IO.puts("[Shop] Opening for business...")
-    # 3. We start the recursive loop
-    loop()
+# 1. Pehle Dukaan (Shop) ka module banate hain
+defmodule BiryaniShop do
+  
+  # Shop ko start karne ka function
+  def start do
+    # 'spawn' se ek naya "Actor" (Process) banta hai jo background mein chalta rahega
+    spawn(fn -> loop() end)
   end
 
-  # 4. Private loop function that waits for messages
+  # Ye shop ka main kaam hai: Intezar karna
   defp loop do
-    # 5. 'receive' stops the process and waits for a "Coconut" (Message)
     receive do
-      # 6. If we get an :order message, we process it
-      {:order, customer_pid, item} ->
-        IO.puts("[Shop] Received order for #{item} from #{inspect(customer_pid)}")
-        # 7. Simulate making the coffee
-        :timer.sleep(1000) 
-        # 8. Send a message back to the Customer
-        send(customer_pid, {:coffee_ready, item})
-        # 9. Loop again to wait for the next customer
+      # Agar koi 'order' aaye toh:
+      {:order, sender_pid, plate_count} ->
+        IO.puts("[Shop] #{plate_count} plate biryani ka order mila!")
+        
+        # Thora time lagta hai banane mein (1 second)
+        :timer.sleep(1000)
+        
+        # Order tayar! Wapis bhejo customer ko
+        send(sender_pid, {:ready, "Garma Garam Biryani"})
+        
+        # Dobara loop chalao taake agla order le sakein
         loop()
 
-      # 10. A "Shutdown" message to close the shop
-      :close ->
-        IO.puts("[Shop] Closing shop. Goodbye!")
+      # Shop band karne ka msg
+      :chutti ->
+        IO.puts("[Shop] Dukaan barhayi ja rahi hai. Allah Hafiz!")
     end
   end
 end
 
-# 11. Define the Customer module (The "Client" Actor)
-defmodule Customer do
-  def order_coffee(shop_pid, item) do
-    IO.puts("[Customer] Ordering a #{item}...")
-    # 12. Send a message to the shop, including our own PID (self()) 
-    # so the shop knows who to reply to.
-    send(shop_pid, {:order, self(), item})
+# --- RUN KARNE KA TAREEQA ---
 
-    # 13. Now the Customer waits for the reply
-    receive do
-      {:coffee_ready, item} ->
-        IO.puts("[Customer] Yay! My #{item} is ready. Time to drink!")
-    after
-      # 14. If the shop doesn't reply in 5 seconds, give up
-      5000 -> IO.puts("[Customer] The shop is taking too long!")
-    end
-  end
+# 2. Dukaan kholi (Process start kiya)
+shop_pid = BiryaniShop.start()
+
+# 3. Customer ne order diya
+# self() ka matlab hai "Mera address" taake shop wapis bheje
+send(shop_pid, {:order, self(), 2})
+
+# 4. Customer ab apna "Mailbox" check kar raha hai
+receive do
+  {:ready, khana} ->
+    IO.puts("[Customer] Mil gayi! #{khana}")
 end
-
-# --- EXECUTION SECTION ---
-
-# 15. Start the Shop process (This is the "Actor")
-# 'spawn' returns a Process ID (PID)
-shop_pid = spawn(fn -> CoffeeShop.start_shop() end)
-
-# 16. Start the Customer logic
-# Note: The Customer runs in the "Main" process here
-Customer.order_coffee(shop_pid, "Latte")
-
-# 17. Close the shop
-send(shop_pid, :close)
