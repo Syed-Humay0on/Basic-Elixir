@@ -1,6 +1,6 @@
 defmodule PipeOperator do
   def name() do
-    "syed humayun az3"
+    "syed humayun aziz"
     |> String.split()
     |> Enum.map(&String.capitalize/1)
     |> Enum.join(" ")
