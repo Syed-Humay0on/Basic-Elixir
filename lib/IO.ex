@@ -5,4 +5,8 @@ defmodule IO_Device do
     |> String.split()
     |> Enum.join()
   end 
+  def caiptalize do
+    IO.gets("Let's capitalize this shit\n")
+    |> String.capitalize()
+  end
 end
