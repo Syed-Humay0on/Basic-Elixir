@@ -35,4 +35,15 @@ defmodule IO_Device do
     |> Enum.take(5)
     |> Enum.sum()
   end
+
+  def pipe_anon do
+    ["apple", "banana", "cherry", "date"]
+    # length ke hisaab se descending
+    |> Enum.sort_by(&String.length/1, :desc)
+    # capture syntax (&)
+    |> Enum.map(&(&1 <> " is tasty!"))
+    |> Enum.join(" | ")
+
+    # → "banana is tasty! | cherry is tasty! | apple is tasty! | date is tasty!" 
+  end
 end
