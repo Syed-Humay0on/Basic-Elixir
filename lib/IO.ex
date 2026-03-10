@@ -24,4 +24,15 @@ defmodule IO_Device do
     # First letter capitalize
     |> String.capitalize()
   end
+
+  def enum() do
+    1..20
+    # multiples of 3
+    |> Enum.filter(fn x -> rem(x, 3) == 0 end)
+    # square karo
+    |> Enum.map(&(&1 * &1))
+    # pehle 5 hi lo
+    |> Enum.take(5)
+    |> Enum.sum()
+  end
 end
