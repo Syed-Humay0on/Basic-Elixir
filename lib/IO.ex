@@ -43,7 +43,15 @@ defmodule IO_Device do
     # capture syntax (&)
     |> Enum.map(&(&1 <> " is tasty!"))
     |> Enum.join(" | ")
+  end
 
-    # → "banana is tasty! | cherry is tasty! | apple is tasty! | date is tasty!" 
+  def process_data(data) do
+    data
+    # debug print (Elixir 1.12+)
+    |> tap(&IO.inspect(&1, label: "raw"))
+    |> String.trim()
+    |> tap(&IO.inspect(&1, label: "trimmed"))
+    |> String.upcase()
+    |> tap(&IO.inspect(&1, label: "final"))
   end
 end
