@@ -15,4 +15,14 @@ defmodule PipePattern do
 
     # -> 420
   end
+
+  def validation do
+      IO.gets("expectung input\n")
+      |> String.trim()
+      |> Integer.parse()
+      |> case do
+        {num, ""} -> {:ok, num}
+        _ -> {:error, :invalid_number}
+      end
+  end
 end
