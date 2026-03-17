@@ -1,30 +1,26 @@
-# actor_model_fixed.ex
+# actor_model.ex
+# Run with: elixir actor_model.ex
 
-defmodule ActorModel2 do
+defmodule ActorModel do
   def main do
-    # Spawn the worker, passing main's PID so worker can reply
-    main_pid = self()
-    worker_pid = spawn(fn -> worker(main_pid) end)
+    # Create a process and capture its PID
+    pid = spawn(fn ->
+      # This function runs in the NEW process
+      # receive blocks until a message arrives in this process's mailbox
+      receive do
+        message ->
+          IO.puts("Got message: #{message}")
+      end
+    end)
 
-    # Now send the actual message to the worker
-    send(worker_pid, "Hello there!")
+    # Back in the main process: send message to the spawned process
+    send(pid, "Hello there!")
 
-    # Block waiting for worker to finish
-    receive do
-      :done -> IO.puts("Main: Worker completed successfully")
-    end
-  end
-
-  # Worker runs in separate process
-  defp worker(main_pid) do
-    receive do
-      message ->
-        IO.puts("Worker got: #{message}")
-        # Notify main process we're done
-        send(main_pid, :done)
-    end
+    # Give the process time to receive and print before main exits
+    # (In a real app, you'd use proper synchronization)
+    Process.sleep(100)
   end
 end
 
-# Run it
-ActorModel2.main()
+# Entry point: call the main function
+ActorModel.main()
