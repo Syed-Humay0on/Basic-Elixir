@@ -24,7 +24,7 @@
 2. **Recursive Step:** The condition that CALLS the function again with smaller data.
 
 ## 📖 The Roadmap
-**[View the full 15-day plan →](ROADMAP.md)**
+**[View the full plan →](ROADMAP.md)**
 
 ## 🚀 Quick Start
 ```bash
